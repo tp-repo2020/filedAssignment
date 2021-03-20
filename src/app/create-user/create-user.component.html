@@ -1,0 +1,73 @@
+<div class="create-user">
+    <h3>Create user here</h3>
+    <form [formGroup]="createUserForm" (ngSubmit)="handleSubmit()" novalidate autocomplete="off">
+        <div class="form-field">
+            <input type="text" name="firstName" formControlName="firstName">
+            <span class="floating-label">Enter your first name</span>
+            <div *ngIf="createUserForm.get('firstName').invalid && 
+            createUserForm.get('firstName').errors && 
+            (createUserForm.get('firstName').dirty || createUserForm.get('firstName').touched)">
+                <small class="text-danger" *ngIf="createUserForm.get('firstName').hasError('required')">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+        
+        <div class="form-field">
+            <input type="text" name="lastName" formControlName="lastName">
+            <span class="floating-label">Enter your last name</span>
+            <div *ngIf="createUserForm.get('lastName').invalid && 
+            createUserForm.get('lastName').errors && 
+            (createUserForm.get('lastName').dirty || createUserForm.get('lastName').touched)">
+                <small class="text-danger" *ngIf="createUserForm.get('lastName').hasError('required')">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input type="text" formControlName="email" name="email">
+            <span class="floating-label">Your email address</span>
+            <div *ngIf="createUserForm.get('email').invalid && 
+            createUserForm.get('email').errors && 
+            (createUserForm.get('email').dirty || createUserForm.get('email').touched)">
+                <small class="text-danger" *ngIf="createUserForm.get('email').hasError('required')">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input type="text" formControlName="phone" name="phone">
+            <span class="floating-label">Your phone number</span>
+            <div *ngIf="createUserForm.get('phone').invalid && 
+            createUserForm.get('phone').errors && 
+            (createUserForm.get('phone').dirty || createUserForm.get('phone').touched)">
+                <small class="text-danger" *ngIf="createUserForm.get('phone').hasError('required')">
+                    This field is required.
+                </small>
+                <small class="text-danger" *ngIf="createUserForm.get('phone').hasError('minlength') ||
+                createUserForm.get('phone').hasError('maxlength')">
+                    Enter 10 digit mobile number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input type="number" formControlName="monthlyAddBudget" name="monthlyAddBudget">
+            <span class="floating-label">Monthly Advertising budget</span>
+            <div *ngIf="createUserForm.get('monthlyAddBudget').invalid && 
+            createUserForm.get('monthlyAddBudget').errors && 
+            (createUserForm.get('monthlyAddBudget').dirty || createUserForm.get('monthlyAddBudget').touched)">
+                <small class="text-danger" *ngIf="createUserForm.get('monthlyAddBudget').hasError('required')">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <button type="submit" [disabled]="createUserForm.invalid || paymentService.showToast">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</div>

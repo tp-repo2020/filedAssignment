@@ -1,0 +1,28 @@
+<ul>
+    <li *ngFor="let user of users | async; let i = index">
+        <table>
+            <thead><h4>User Information</h4></thead>
+            <tr>
+                <td>User First Name :</td>
+                <td>{{user.firstName}}</td>
+            </tr>
+            <tr>
+                <td>User Last Name :</td>
+                <td>{{user.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Phone Number :</td>
+                <td>{{user.phone}}</td>
+            </tr>
+            <tr>
+                <td>Email :</td>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <td>Monthly Advertising Budget :</td>
+                <td>{{user.monthlyAddBudget}}</td>
+            </tr>
+        </table>
+    
+    </li>
+</ul>
